@@ -1,0 +1,380 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="654,696" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="23">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="Global" sap:VirtualizedContainerService.HintSize="634,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Usuario" />
+      <Variable x:TypeArguments="x:String" Name="cedula" />
+      <Variable x:TypeArguments="x:String" Name="nombre" />
+      <Variable x:TypeArguments="x:String" Name="apellido" />
+      <Variable x:TypeArguments="x:String" Name="estado_civil" />
+      <Variable x:TypeArguments="x:Int32" Name="contador_registro" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">10,22.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">70,60 120,60</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID5</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">370,27</av:Point>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">470,93 470,123 300,123 300,147</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Abre y obtiene registros Excel" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,260" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="Usuarios.xlsx">
+          <ui:ExcelApplicationScope.Body>
+            <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,151" sap2010:WorkflowViewState.IdRef="Sequence_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:ExcelReadRange AddHeaders="True" DataTable="[dt_Usuario]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Hoja1">
+                  <ui:ExcelReadRange.Range>
+                    <InArgument x:TypeArguments="x:String">
+                      <Literal x:TypeArguments="x:String" Value="" />
+                    </InArgument>
+                  </ui:ExcelReadRange.Range>
+                </ui:ExcelReadRange>
+              </Sequence>
+            </ActivityAction>
+          </ui:ExcelApplicationScope.Body>
+        </ui:ExcelApplicationScope>
+      </Sequence>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">200,147</av:Point>
+              <av:Size x:Key="ShapeSize">200,66</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,213 300,243 300.141666666667,243 300.141666666667,249.5</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Asigno registros a variables" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[contador_registro]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[dt_Usuario.Rows.Count()]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dt_Usuario]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="262,51" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,805" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Cedula" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_1" Row="[row]">
+                      <ui:GetRowItem.Value>
+                        <OutArgument x:TypeArguments="x:String">[cedula]</OutArgument>
+                      </ui:GetRowItem.Value>
+                    </ui:GetRowItem>
+                    <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Nombre" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_2" Row="[row]">
+                      <ui:GetRowItem.Value>
+                        <OutArgument x:TypeArguments="x:String">[nombre]</OutArgument>
+                      </ui:GetRowItem.Value>
+                    </ui:GetRowItem>
+                    <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Apellido" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_3" Row="[row]">
+                      <ui:GetRowItem.Value>
+                        <OutArgument x:TypeArguments="x:String">[apellido]</OutArgument>
+                      </ui:GetRowItem.Value>
+                    </ui:GetRowItem>
+                    <ui:GetRowItem Column="{x:Null}" ColumnIndex="{x:Null}" ColumnName="Estado_civil" DisplayName="Get Row Item" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="GetRowItem_4" Row="[row]">
+                      <ui:GetRowItem.Value>
+                        <OutArgument x:TypeArguments="x:String">[estado_civil]</OutArgument>
+                      </ui:GetRowItem.Value>
+                    </ui:GetRowItem>
+                    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Remove">
+                      <InvokeMethod.TargetObject>
+                        <InArgument x:TypeArguments="sd:DataRowCollection">[dt_Usuario.Rows]</InArgument>
+                      </InvokeMethod.TargetObject>
+                      <InArgument x:TypeArguments="sd:DataRow">[row]</InArgument>
+                    </InvokeMethod>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[cedula + &quot; - &quot; + nombre + &quot;-&quot; + apellido + &quot; - &quot; + estado_civil]" />
+                    <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachRow>
+          </Sequence>
+          <FlowStep.Next>
+            <FlowDecision x:Name="__ReferenceID2" Condition="[contador_registro&gt;=1]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">260.641666666667,249.5</av:Point>
+                  <av:Size x:Key="ShapeSize">79,87</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">260.641666666667,293 150,293 150,337</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">339.641666666667,293 369.641666666667,293 369.641666666667,292.52 389.641666666667,292.52</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">50,337</av:Point>
+                      <av:Size x:Key="ShapeSize">200,66</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">50,370 20,370 20,180 200,180</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'HomePage  Page'" sap:VirtualizedContainerService.HintSize="434,1864" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="ba6036bac96d2eb10a34c67777e490bf" Selector="&lt;html app='chrome.exe' title='Home Page - Mi aplicación ASP.NET' /&gt;">
+                      <ui:BrowserScope.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1718" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  MainContent_txtC...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="True" Text="[cedula]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="2c5d93e68ae3e25c981b7217d01ece1e" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  MainContent_txtC...'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="tab" KeyModifiers="None" SpecialKey="True">
+                              <ui:SendHotkey.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03198886b5f1de9124f93075ba582b61" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SendHotkey.Target>
+                            </ui:SendHotkey>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  MainContent_txtN...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" SendWindowMessages="False" SimulateType="True" Text="[nombre]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3f6f72fdb58c638d640221790ef3321c" Selector="&lt;webctrl id='MainContent_txtNombre' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  MainContent_txtC...'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_7" Key="tab" KeyModifiers="None" SpecialKey="True">
+                              <ui:SendHotkey.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03198886b5f1de9124f93075ba582b61" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SendHotkey.Target>
+                            </ui:SendHotkey>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  MainContent_txtA...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_7" SendWindowMessages="False" SimulateType="True" Text="[apellido]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="91053d6ba7302a62b432d3f2e47af843" Selector="&lt;webctrl id='MainContent_txtApellido' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  MainContent_txtC...'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_8" Key="tab" KeyModifiers="None" SpecialKey="True">
+                              <ui:SendHotkey.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03198886b5f1de9124f93075ba582b61" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SendHotkey.Target>
+                            </ui:SendHotkey>
+                            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into 'INPUT  MainContent_txtE...'" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_8" SendWindowMessages="False" SimulateType="True" Text="[estado_civil]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="9d54fefb0b632915a01a764bf60d13ce" Selector="&lt;webctrl id='MainContent_txtEstado' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  MainContent_txtC...'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_9" Key="tab" KeyModifiers="None" SpecialKey="True">
+                              <ui:SendHotkey.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03198886b5f1de9124f93075ba582b61" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SendHotkey.Target>
+                            </ui:SendHotkey>
+                            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey 'INPUT  MainContent_txtC...'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_10" Key="enter" KeyModifiers="None" SpecialKey="True">
+                              <ui:SendHotkey.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="03198886b5f1de9124f93075ba582b61" Selector="&lt;webctrl id='MainContent_txtCedula' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:SendHotkey.Target>
+                            </ui:SendHotkey>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:BrowserScope.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:BrowserScope>
+                  </Sequence>
+                  <FlowStep.Next>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowDecision.True>
+              <FlowDecision.False>
+                <FlowStep x:Name="__ReferenceID3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">389.641666666667,267.02</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Mensaje Final" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Proceso Finalizado&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:MessageBox>
+                </FlowStep>
+              </FlowDecision.False>
+            </FlowDecision>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <FlowStep x:Name="__ReferenceID5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">120,27</av:Point>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">320,60 370,60</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence DisplayName="Abrir Url" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="434,182" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://192.168.100.45:8092/">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+      </Sequence>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID1</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+  </Flowchart>
+</Activity>
